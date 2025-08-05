@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async () => {
+    if (!email) {
+      toast.error('Please enter a valid email');
+      return;
+    }
+
+    try {
+      await axios.post('http://localhost:5000/api/register', { email });
+      toast.success(`${email} registered successfully!`);
+      setEmail('');
+    } catch (error) {
+      toast.error(error.response?.data?.error || 'Registration failed');
+    }
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex items-center justify-center px-6">
       <section className="max-w-3xl w-full space-y-8 text-center flex flex-col items-center justify-center py-12">
@@ -33,10 +53,15 @@ const Home = () => {
         <div className="w-full max-w-sm space-y-4 animate-fade-in-up delay-300">
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             className="px-4 py-2 rounded-md w-full bg-gray-900 text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
           />
-          <button className="w-full px-6 py-2 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white rounded-md transition">
+          <button
+            onClick={handleSubmit}
+            className="w-full px-6 py-2 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white rounded-md transition"
+          >
             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
@@ -46,6 +71,9 @@ const Home = () => {
             No commitment required. Let's explore how we can help grow your business.
           </p>
         </div>
+
+        {/* Toast Container */}
+        <ToastContainer position="top-center" autoClose={3000} />
 
       </section>
     </main>
