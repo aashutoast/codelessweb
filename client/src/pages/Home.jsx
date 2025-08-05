@@ -5,19 +5,34 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
   const handleSubmit = async () => {
-    if (!email) {
+    if (!email.trim()) {
       toast.error('Please enter a valid email');
       return;
     }
 
+    setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/register', { email });
+      const response = await axios.post(`${BACKEND_URL}/api/store-email`, { address: email });
       toast.success(`${email} registered successfully!`);
       setEmail('');
     } catch (error) {
-      toast.error(error.response?.data?.error || 'Registration failed');
+      const status = error.response?.status;
+      const message = error.response?.data?.error || 'Registration failed';
+
+      if (status === 409) {
+        toast.info('This email is already registered');
+      } else if (status === 400) {
+        toast.error('Please enter a valid email address');
+      } else {
+        toast.error(message);
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,12 +75,15 @@ const Home = () => {
           />
           <button
             onClick={handleSubmit}
-            className="w-full px-6 py-2 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white rounded-md transition"
+            disabled={loading}
+            className={`w-full px-6 py-2 flex items-center justify-center gap-2 ${
+              loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600'
+            } text-white rounded-md transition`}
           >
             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
-            Get Your FREE Demo
+            {loading ? 'Submitting...' : 'Get Your FREE Demo'}
           </button>
           <p className="text-sm text-gray-400">
             No commitment required. Let's explore how we can help grow your business.
