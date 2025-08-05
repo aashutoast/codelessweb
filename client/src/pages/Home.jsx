@@ -7,7 +7,7 @@ const Home = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://backend-codelessweb-1.onrender.com';
 
   const handleSubmit = async () => {
     if (!email.trim()) {
@@ -20,6 +20,12 @@ const Home = () => {
       const response = await axios.post(`${BACKEND_URL}/api/store-email`, { address: email });
       toast.success(`${email} registered successfully!`);
       setEmail('');
+
+       // ⏳ Delay redirect until toast is visible
+    setTimeout(() => {
+      window.location.href = 'https://calendly.com/ashishsharmakgp/intro-call?month=2025-08'; // ✅ Replace with your actual link
+    }, 4000); // Match this with toast duration
+
     } catch (error) {
       const status = error.response?.status;
       const message = error.response?.data?.error || 'Registration failed';
