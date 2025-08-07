@@ -98,7 +98,7 @@ const Home = () => {
         <ToastContainer position="top-center" autoClose={3000} />
 
       </section>
-      <div className="w-full max-w-sm space-y-4 animate-fade-in-up delay-300">
+      <div className="py-8 text-center w-full max-w-sm space-y-4 animate-fade-in-up delay-300">
         <p className="text-sm text-gray-400">
           No commitment required. Let's explore how we can help grow your business.
         </p>
