@@ -43,7 +43,7 @@ const Home = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex items-center space-between px-6">
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex items-center justify-center px-6">
 
       {/* Logo */}
       <header className='py-8 text-center'>
@@ -52,7 +52,7 @@ const Home = () => {
           <span className="text-xl font-normal text-gray-400 md:text-base">.io</span>
         </h1>
       </header>
-
+      
       <section className="max-w-3xl w-full space-y-8 text-center flex flex-col items-center justify-center py-12">
 
 
