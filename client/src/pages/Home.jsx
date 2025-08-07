@@ -65,7 +65,7 @@ const Home = () => {
         </button>
 
         {/* Hero Text */}
-        <h2 className="text-4xl md:text-5xl font-medium tracking-tight font-sans animate-fade-in-up delay-100">
+        <h2 className="text-4xl md:text-4xl font-medium tracking-tight font-sans animate-fade-in-up delay-100">
           We design and launch optimized websites at warp speed.
         </h2>
         <p className="max-w-xl text-lg text-gray-300 md:text-xl animate-fade-in-up delay-200">
