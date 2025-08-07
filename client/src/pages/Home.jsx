@@ -43,16 +43,18 @@ const Home = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex items-center justify-center px-6">
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex items-center space-between px-6">
+
+      {/* Logo */}
+      <header className='py-8 text-center'>
+        <h1 className="text-base font-normal tracking-tight">
+          CodelessWeb
+          <span className="text-xl font-normal text-gray-400 md:text-base">.io</span>
+        </h1>
+      </header>
+
       <section className="max-w-3xl w-full space-y-8 text-center flex flex-col items-center justify-center py-12">
 
-        {/* Logo */}
-        <header className='py-8 text-center'>
-          <h1 className="text-base font-normal tracking-tight">
-            CodelessWeb
-            <span className="text-xl font-normal text-gray-400 md:text-base">.io</span>
-          </h1>
-        </header>
 
         {/* Launching Soon Button */}
         <button className="bg-gray-800 text-white rounded-full px-4 py-2 flex items-center hover:bg-gray-700 transition">
