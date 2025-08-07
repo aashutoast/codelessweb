@@ -21,10 +21,10 @@ const Home = () => {
       toast.success(`${email} registered successfully!`);
       setEmail('');
 
-       // ⏳ Delay redirect until toast is visible
-    setTimeout(() => {
-      window.location.href = 'https://calendly.com/ashishsharmakgp/intro-call?month=2025-08'; // ✅ Replace with your actual link
-    }, 4000); // Match this with toast duration
+      // ⏳ Delay redirect until toast is visible
+      setTimeout(() => {
+        window.location.href = 'https://calendly.com/ashishsharmakgp/intro-call?month=2025-08'; // ✅ Replace with your actual link
+      }, 4000); // Match this with toast duration
 
     } catch (error) {
       const status = error.response?.status;
@@ -43,7 +43,7 @@ const Home = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col justify-between px-6">
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col items-center justify-between px-6">
 
       {/* Logo */}
       <header className='py-8 text-center'>
@@ -52,7 +52,7 @@ const Home = () => {
           <span className="text-xl font-normal text-gray-400 md:text-base">.io</span>
         </h1>
       </header>
-      
+
       <section className="max-w-3xl w-full space-y-8 text-center flex flex-col items-center justify-center py-12">
 
 
@@ -84,24 +84,25 @@ const Home = () => {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className={`w-full px-6 py-2 flex items-center justify-center gap-2 ${
-              loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600'
-            } text-white rounded-md transition`}
+            className={`w-full px-6 py-2 flex items-center justify-center gap-2 ${loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600'
+              } text-white rounded-md transition`}
           >
             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
             {loading ? 'Submitting...' : 'Get Your FREE Demo'}
           </button>
-          <p className="text-sm text-gray-400">
-            No commitment required. Let's explore how we can help grow your business.
-          </p>
         </div>
 
         {/* Toast Container */}
         <ToastContainer position="top-center" autoClose={3000} />
 
       </section>
+      <div className="w-full max-w-sm space-y-4 animate-fade-in-up delay-300">
+        <p className="text-sm text-gray-400">
+          No commitment required. Let's explore how we can help grow your business.
+        </p>
+      </div>
     </main>
   );
 };
