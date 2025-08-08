@@ -76,12 +76,9 @@ const Home = () => {
 
 
         {/* Launching Soon Button */}
-        <button className="bg-gray-800 text-white rounded-full px-4 py-2 flex items-center hover:bg-gray-700 transition">
-          <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2c-1.1 0-2 .9-2 2v2.1c-2.9 1.1-5 3.9-5 7.2 0 .7.1 1.4.3 2.1l-2.3 2.3c-.4.4-.4 1 0 1.4l1.4 1.4c.4.4 1 .4 1.4 0l2.3-2.3c.7.2 1.4.3 2.1.3 3.3 0 6.1-2.1 7.2-5H20c1.1 0 2-.9 2-2s-.9-2-2-2h-2.1c-1.1-2.9-3.9-5-7.2-5V4c0-1.1-.9-2-2-2zm0 14a4 4 0 110-8 4 4 0 010 8z" />
-          </svg>
+        <div className="bg-gray-800 text-white rounded-full px-4 py-2 flex items-center hover:bg-gray-700 transition">
           🚀 Built for Founders, Not Agencies
-        </button>
+        </div>
 
         {/* Hero Text */}
         <h2 className="text-4xl md:text-4xl font-medium tracking-tight font-sans animate-fade-in-up delay-100">
