@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -45,6 +46,24 @@ const Home = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col items-center justify-between px-6">
 
+      {/* ✅ SEO Meta Tags */}
+      <Helmet>
+        <title>High-Converting Startup Websites | CodelessWeb.io</title>
+        <meta
+          name="description"
+          content="Affordable, SEO-optimized startup websites built with Webflow, Framer & Figma. Fast-loading, accessible, and designed to convert visitors into customers."
+        />
+        <meta
+          name="keywords"
+          content="startup website design, Webflow developer, Framer expert, Figma to Webflow, affordable web design, SEO optimized websites"
+        />
+        <meta property="og:title" content="CodelessWeb.io - High-Converting Startup Websites" />
+        <meta property="og:description" content="We build pixel-perfect, SEO-optimized websites for startups — fast, affordable, and conversion-focused." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://codelessweb.io" />
+        {/* <meta property="og:image" content="https://codelessweb.io/og-image.jpg" /> */}
+      </Helmet>
+
       {/* Logo */}
       <header className='py-8 text-center'>
         <h1 className="text-base font-normal tracking-tight">
@@ -61,15 +80,15 @@ const Home = () => {
           <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2c-1.1 0-2 .9-2 2v2.1c-2.9 1.1-5 3.9-5 7.2 0 .7.1 1.4.3 2.1l-2.3 2.3c-.4.4-.4 1 0 1.4l1.4 1.4c.4.4 1 .4 1.4 0l2.3-2.3c.7.2 1.4.3 2.1.3 3.3 0 6.1-2.1 7.2-5H20c1.1 0 2-.9 2-2s-.9-2-2-2h-2.1c-1.1-2.9-3.9-5-7.2-5V4c0-1.1-.9-2-2-2zm0 14a4 4 0 110-8 4 4 0 010 8z" />
           </svg>
-          Launching soon this year
+          🚀 Built for Founders, Not Agencies
         </button>
 
         {/* Hero Text */}
         <h2 className="text-4xl md:text-4xl font-medium tracking-tight font-sans animate-fade-in-up delay-100">
-          We design and launch optimized websites at warp speed.
+          High-Impact Webflow & Framer Websites for Growing Startups
         </h2>
         <p className="max-w-xl text-lg text-gray-300 md:text-xl animate-fade-in-up delay-200">
-          At CodelessWeb, our small team is ready to build your end-to-end, fully optimized ✨ pixel-perfect website. We’ve delivered over +50 projects to clients globally. Schedule a quick call for pricing and a FREE DEMO.
+          We help founders launch SEO-optimized, fast-loading, and accessible websites — from Figma to Webflow or Framer — without wasting time or budget.
         </p>
 
         {/* Email Input + CTA */}
@@ -90,7 +109,7 @@ const Home = () => {
             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
-            {loading ? 'Submitting...' : 'Get Your FREE Demo'}
+            {loading ? 'Submitting...' : 'Book a Free Strategy Call'}
           </button>
         </div>
 
