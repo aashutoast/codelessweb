@@ -61,6 +61,7 @@ const Home = () => {
         <meta property="og:description" content="We build pixel-perfect, SEO-optimized websites for startups — fast, affordable, and conversion-focused." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codelessweb.io" />
+        <link rel="manifest" href="/site.webmanifest" />
         {/* <meta property="og:image" content="https://codelessweb.io/og-image.jpg" /> */}
       </Helmet>
 
