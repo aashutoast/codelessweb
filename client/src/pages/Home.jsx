@@ -72,7 +72,7 @@ const Home = () => {
         </h1>
       </header>
 
-      <section className="max-w-3xl w-full space-y-8 text-center flex flex-col items-center justify-center py-12">
+      <section className="max-w-2xl w-full space-y-8 text-center flex flex-col items-center justify-center py-12">
 
 
         {/* Launching Soon Button */}
