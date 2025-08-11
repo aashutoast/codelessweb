@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  // ✅ List of valid credentials
   const validUsers = [
     { email: 'admin@example.com', password: 'secure123' },
     { email: 'mayankfhacker@gmail.com', password: 'Sharma@2005' },
@@ -14,12 +15,16 @@ const LoginComponent = () => {
   ];
 
   const handleLogin = () => {
-    // ✅ Check if credentials match any user
     const isValid = validUsers.find(
       (user) => user.email === email && user.password === password
     );
 
-    isValid ? navigate('/admin-home') : alert('Invalid credentials');
+    if (isValid) {
+      login(); // ✅ update auth state
+      navigate('/admin-home');
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
   return (
