@@ -1,7 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/login", "destination": "/" },
-    { "source": "/admin-home", "destination": "/" },
-    { "source": "/:path*", "destination": "/" }
-  ]
-}

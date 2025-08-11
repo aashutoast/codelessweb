@@ -9,6 +9,24 @@ const Login = () => {
 
   return (
     <div className="min-h-screen relative flex flex-col items-center justify-center bg-gray-100 px-4">
+      {/* ✅ SEO Meta Tags */}
+            <Helmet>
+              <title>High-Converting Startup Websites | CodelessWeb.io</title>
+              <meta
+                name="description"
+                content="Affordable, SEO-optimized startup websites built with Webflow, Framer & Figma. Fast-loading, accessible, and designed to convert visitors into customers."
+              />
+              <meta
+                name="keywords"
+                content="startup website design, Webflow developer, Framer expert, Figma to Webflow, affordable web design, SEO optimized websites"
+              />
+              <meta property="og:title" content="CodelessWeb.io - High-Converting Startup Websites" />
+              <meta property="og:description" content="We build pixel-perfect, SEO-optimized websites for startups — fast, affordable, and conversion-focused." />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://codelessweb.io/login" />
+              {/* <meta property="og:image" content="https://codelessweb.io/og-image.jpg" /> */}
+            </Helmet>
+
       {/* Top Center Text */}
       <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
         <h1 className="text-xl font-bold text-black">CodelessWeb</h1>
