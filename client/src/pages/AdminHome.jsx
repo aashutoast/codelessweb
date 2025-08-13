@@ -42,7 +42,7 @@ const EmailDashboard = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Top Navigation */}
-      <header className="w-full bg-white shadow-md border-b border-gray-200">
+      <header className="w-full bg-gray-300 shadow-md border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-extrabold text-black tracking-wide">
             CodelessWeb
