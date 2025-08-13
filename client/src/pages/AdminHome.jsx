@@ -67,13 +67,13 @@ const EmailDashboard = () => {
 
           {/* Search Bar */}
           <div className="relative w-full sm:w-72">
-            <MagnifyingGlassIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+            <MagnifyingGlassIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-500" />
             <input
               type="text"
               placeholder="Search emails..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent shadow"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent shadow"
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ const EmailDashboard = () => {
             {filteredEmails.map(({ address, timestamp, _id }) => (
               <li
                 key={_id}
-                className="flex justify-between items-center bg-gray-50 hover:bg-indigo-50 transition-colors duration-200 p-4 rounded-lg border border-gray-300 shadow-sm"
+                className="flex justify-between items-center bg-gray-100 hover:bg-indigo-50 transition-colors duration-200 p-4 rounded-lg border border-gray-300 shadow-md hover:shadow-lg cursor-pointer sm:shadow-sm sm:hover:shadow-lg"
               >
                 <div className="flex flex-col">
                   <span className="text-gray-900 font-semibold text-lg">{address}</span>
