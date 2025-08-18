@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import { ChevronUpIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+
+dayjs.extend(utc); // Enable UTC parsing
 
 const EmailDashboard = () => {
   const [emails, setEmails] = useState([]);
@@ -34,7 +37,6 @@ const EmailDashboard = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Filter emails based on search input
   const filteredEmails = emails.filter((email) =>
     email.address.toLowerCase().includes(search.toLowerCase())
   );
@@ -58,7 +60,6 @@ const EmailDashboard = () => {
 
       {/* Email Dashboard */}
       <main className="flex-grow max-w-4xl mx-auto mt-10 px-6 py-8 bg-white shadow-xl rounded-2xl border border-gray-200 mb-20">
-        
         {/* Heading + Search */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl shadow-sm border border-gray-200">
           <h2 className="text-3xl font-extrabold text-black flex items-center gap-2 border-l-4 border-indigo-500 pl-3">
@@ -86,7 +87,7 @@ const EmailDashboard = () => {
           <p className="text-gray-500 text-center">No matching emails found.</p>
         ) : (
           <ul className="space-y-4">
-            {filteredEmails.map(({ address, timestamp, _id }) => (
+            {filteredEmails.map(({ address, createdAt, _id }) => (
               <li
                 key={_id}
                 className="flex justify-between items-center bg-gray-100 hover:bg-indigo-50 transition-colors duration-200 p-4 rounded-lg border border-gray-300 shadow-md hover:shadow-lg cursor-pointer sm:shadow-sm sm:hover:shadow-lg"
@@ -94,7 +95,7 @@ const EmailDashboard = () => {
                 <div className="flex flex-col">
                   <span className="text-gray-900 font-semibold text-lg">{address}</span>
                   <span className="text-sm text-gray-500">
-                    {dayjs(timestamp).format('DD MMM YYYY, hh:mm A')}
+                    {dayjs.utc(createdAt).format('DD MMM YYYY, hh:mm A') + ' UTC'}
                   </span>
                 </div>
                 <div className="text-xs text-gray-400 italic">
